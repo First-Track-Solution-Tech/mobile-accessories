@@ -131,7 +131,7 @@ function Navbar() {
       {/* Desktop Menu */}
       <div className="hidden lg:flex space-x-6">
         <Link to="/" className="hover:text-yellow-400">Home</Link>
-        <Link to="/login" className="hover:text-yellow-400">Login</Link>
+
         <div className="relative">
           <button onClick={() => toggleDropdown("category")} className="flex items-center hover:text-yellow-400">
             Category {activeDropdown === "category" ? <FaChevronUp /> : <FaChevronDown />}
