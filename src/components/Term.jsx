@@ -98,6 +98,7 @@
 
 
 import React from "react";
+import Footer from "../components/Footer"; // Footer import
 import {
   FaBookOpen,
   FaBox,
@@ -111,6 +112,7 @@ import {
 
 const TermsConditions = () => {
   return (
+    <>
     <div className="bg-gradient-to-br from-gray-100 via-blue-50 to-white py-16 px-6 md:px-12">
       <div className="max-w-5xl mx-auto bg-white/90 backdrop-blur-lg shadow-2xl rounded-3xl p-10 border">
 
@@ -226,6 +228,9 @@ const TermsConditions = () => {
 
       </div>
     </div>
+    {/* Footer always at bottom */}
+    <Footer />
+  </>
   );
 };
 

@@ -24,10 +24,12 @@ import LoginPage from "./components/LoginPage";
 import CartPage from "./pages/CartPage";
 import AddressPage from "./pages/AddressPage.jsx";
 import Confirmation from "./pages/Confirmation";
-
+import Blog from "./pages/Blog.jsx";
+import FAQ from "./pages/faq.jsx";
 import Payment from "./pages/PaymentPage";
-
 import RegisterPage from "./pages/RegisterPage";
+import ReturnExchange from "./pages/ReturnExchange.jsx";
+import RefundCancellation from "./pages/RefundCancellation.jsx"
 
 const App = () => {
   return (
@@ -64,13 +66,22 @@ const App = () => {
             <Route path="/register" element={<RegisterPage />} />
            
             <Route path="/refer" element={<Refer />} />
-            <Route path="/partner" element={<Partner />} />
-            <Route path="/product/:id" element={<ProductDetail />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/address" element={<AddressPage />} />
-            <Route path="/confirmation" element={<Confirmation/>} />
-          
+<Route path="/partner" element={<Partner />} />
+
+<Route path="/products" element={<Products />} />
+<Route path="/products/:categoryName" element={<Products />} />
+
+<Route path="/product/:id" element={<ProductDetail />} />
+
+<Route path="/cart" element={<CartPage />} />
+<Route path="/address" element={<AddressPage />} />
+<Route path="/confirmation" element={<Confirmation />} />
+
             <Route path="/payment" element={<Payment />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/return-exchange" element={<ReturnExchange />} />
+            <Route path="/refund-cancellation" element={<RefundCancellation />} />
           </Routes>
         </div>
       </div>

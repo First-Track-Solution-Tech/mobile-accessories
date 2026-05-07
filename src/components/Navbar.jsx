@@ -1,112 +1,13 @@
-// import React, { useState } from "react";
-// import logo from "../assets/logo.jpg";
-// import { FaShoppingCart, FaBars, FaChevronDown, FaChevronUp } from "react-icons/fa";
-// import { IoMdClose } from "react-icons/io";
-// import { Link } from "react-router-dom";
-// import { useSelector } from "react-redux";
-
-// function Navbar() {
-//   const [isMenuOpen, setIsMenuOpen] = useState(false);
-//   const [activeDropdown, setActiveDropdown] = useState(null);
-//   const numberOfItems = useSelector((state) => state.cart.totalItems);
-
-//   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-//   const toggleDropdown = (menu) => {
-//     setActiveDropdown(activeDropdown === menu ? null : menu);
-//   };
-
-//   return (
-//     <nav className="flex items-center justify-between w-full px-6 bg-zinc-700 p-4 text-white shadow-lg h-20">
-//       {/* Logo */}
-//       <Link to="/" className="flex items-center text-yellow-400">
-//         <img src={logo} alt="Logo" className="h-18 w-18 rounded-full" />
-//       </Link>
-
-//       {/* Desktop Menu */}
-//       <div className="hidden lg:flex space-x-6">
-//         <Link to="/" className="hover:text-yellow-400">Home</Link>
-//         <Link to="/login" className="hover:text-yellow-400">Login</Link>
-//         <div className="relative">
-//           <button onClick={() => toggleDropdown("category")} className="flex items-center hover:text-yellow-400">
-//             Category {activeDropdown === "category" ? <FaChevronUp /> : <FaChevronDown />}
-//           </button>
-//           {activeDropdown === "category" && (
-//             <div className="absolute left-0 mt-2 bg-gray-900 p-4 w-48 space-y-2 shadow-lg rounded-md">
-//               <Link to="/category/headphones" className="block hover:text-yellow-400">Headphones</Link>
-//               <Link to="/category/charger" className="block hover:text-yellow-400">Charger</Link>
-//               <Link to="/category/cover" className="block hover:text-yellow-400">Cover</Link>
-//               <Link to="/category/earphone" className="block hover:text-yellow-400">Earphone</Link>
-//               <Link to="/category/powerbank" className="block hover:text-yellow-400">Powerbank</Link>
-//             </div>
-//           )}
-//         </div>
-//         <Link to="/order" className="hover:text-yellow-400">My Orders</Link>
-//         <Link to="/refer" className="hover:text-yellow-400">Refer & Earn</Link>
-//         <Link to="/about" className="hover:text-yellow-400">About Us</Link>
-//       </div>
-
-//       {/* Desktop Cart Icon */}
-//       <Link to="/cart" className="relative hidden lg:block ml-auto">
-//         <FaShoppingCart className="text-white hover:text-yellow-400 text-2xl" />
-//         {numberOfItems > 0 && (
-//           <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">{numberOfItems}</span>
-//         )}
-//       </Link>
-
-//       {/* Mobile Cart Icon & Menu Toggle */}
-//       <div className="flex items-center lg:hidden space-x-4">
-//         <Link to="/cart" className="relative">
-//           <FaShoppingCart className="text-white hover:text-yellow-400 text-2xl" />
-//           {numberOfItems > 0 && (
-//             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">{numberOfItems}</span>
-//           )}
-//         </Link>
-//         <button className="text-2xl text-white hover:text-yellow-400" onClick={toggleMenu}>
-//           {isMenuOpen ? <IoMdClose /> : <FaBars />}
-//         </button>
-//       </div>
-
-//       {/* Mobile Menu Drawer */}
-//       {isMenuOpen && (
-//         <div className="fixed top-0 right-0 w-100 h-full bg-gray-900 text-white p-6 shadow-lg z-50 transition-transform transform translate-x-0">
-//           <button className="absolute top-4 right-4 text-2xl text-white hover:text-yellow-400" 
-//           onClick={toggleMenu}>
-//             <IoMdClose />
-//           </button>
-//           <Link to="/" className="block hover:text-yellow-400 mb-4 mt-10 ml-4">Home</Link>
-//           <Link to="/login" className="block hover:text-yellow-400 mb-4 ml-4">Login</Link>
-         
-//           <button onClick={() => toggleDropdown("category")} className="flex items-center hover:text-yellow-400 mb-5 ml-4">
-//             Category {activeDropdown === "category" ? <FaChevronUp /> : <FaChevronDown />}
-//           </button>
-//           {activeDropdown === "category" && (
-//             <div className="space-y-2 ml-5 mb-4">
-//               <Link to="/category/headphones" className="block hover:text-yellow-400">Headphones</Link>
-//               <Link to="/category/charger" className="block hover:text-yellow-400">Charger</Link>
-//               <Link to="/category/cover" className="block hover:text-yellow-400">Cover</Link>
-//               <Link to="/category/earphone" className="block hover:text-yellow-400">Earphone</Link>
-//               <Link to="/category/powerbank" className="block hover:text-yellow-400">Powerbank</Link>
-//             </div>
-//           )}
-//           <Link to="/order" className="block hover:text-yellow-400 mb-5 ml-4">My Orders</Link>
-//           <Link to="/refer" className="block hover:text-yellow-400 mb-4 ml-4">Refer & Earn</Link>
-//           <Link to="/about" className="block hover:text-yellow-400 ml-4">About Us</Link>
-//         </div>
-//       )}
-//     </nav>
-//   );
-// }
-
-// export default Navbar;
-
-
-
-
-
-
 import React, { useState } from "react";
 import logo from "../assets/logo.jpg";
-import { FaShoppingCart, FaBars, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import {
+  FaShoppingCart,
+  FaBars,
+  FaChevronDown,
+  FaChevronUp,
+  FaHeart,
+  FaBell
+} from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -114,185 +15,354 @@ import { useSelector } from "react-redux";
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const numberOfItems = useSelector((state) => state.cart.totalItems);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const numberOfItems = useSelector(
+    (state) => state.cart.totalItems
+  );
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   const toggleDropdown = (menu) => {
-    setActiveDropdown(activeDropdown === menu ? null : menu);
+    setActiveDropdown(
+      activeDropdown === menu ? null : menu
+    );
   };
 
   return (
-    <nav className="flex items-center justify-between w-full px-6 bg-zinc-700 p-4 text-white shadow-lg h-20">
-      {/* Logo */}
-      <Link to="/" className="flex items-center text-yellow-400">
-        <img src={logo} alt="Logo" className="h-18 w-18 rounded-full" />
-      </Link>
+    <>
+      {/* Navbar */}
+      <nav className="w-full bg-zinc-700 text-white shadow-lg sticky top-0 z-50">
+        <div className="flex items-center justify-between px-6 py-4">
 
-      {/* Desktop Menu */}
-      <div className="hidden lg:flex space-x-6">
-        <Link to="/" className="hover:text-yellow-400">Home</Link>
+          {/* Logo */}
+          <Link to="/">
+              <img
+                src="/Logo_Design.png"
+                alt="logo"
+                className="h-14 w-14 rounded-full object-cover"
+              />
+            </Link>
 
-        <div className="relative">
-          <button onClick={() => toggleDropdown("category")} className="flex items-center hover:text-yellow-400">
-            Category {activeDropdown === "category" ? <FaChevronUp /> : <FaChevronDown />}
-          </button>
-          {activeDropdown === "category" && (
-            <div className="absolute left-0 mt-2 bg-gray-900 p-4 w-48 space-y-2 shadow-lg rounded-md">
-              <Link to="/category/headphones" className="block hover:text-yellow-400">Headphones</Link>
-              <Link to="/category/charger" className="block hover:text-yellow-400">Charger</Link>
-              <Link to="/category/cover" className="block hover:text-yellow-400">Cover</Link>
-              <Link to="/category/earphone" className="block hover:text-yellow-400">Earphone</Link>
-              <Link to="/category/powerbank" className="block hover:text-yellow-400">Powerbank</Link>
-            </div>
-          )}
-        </div>
-        <Link to="/order" className="hover:text-yellow-400">My Orders</Link>
-        <Link to="/refer" className="hover:text-yellow-400">Refer & Earn</Link>
-        <Link to="/about" className="hover:text-yellow-400">About Us</Link>
-      </div>
-      {/* Desktop Right Section */}
-<div className="hidden lg:flex items-center gap-5">
-  
-  {/* Login Button */}
-  <Link
-    to="/login"
-    className="bg-yellow-400 text-black px-5 py-2 rounded-full font-semibold hover:bg-yellow-500 transition"
-  >
-    Login
-  </Link>
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex items-center gap-6">
+            <Link
+              to="/"
+              className="hover:text-yellow-400 transition"
+            >
+              HOME
+            </Link>
 
-  {/* Cart Icon */}
-  <Link to="/cart" className="relative">
-    <FaShoppingCart className="text-white hover:text-yellow-400 text-2xl" />
+            {/* Desktop Category Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => toggleDropdown("desktopCategory")}
+                className="flex items-center gap-2 hover:text-yellow-400"
+              >
+                CATEGORY
+                {activeDropdown === "desktopCategory" ? (
+                  <FaChevronUp size={12} />
+                ) : (
+                  <FaChevronDown size={12} />
+                )}
+              </button>
+              {activeDropdown === "desktopCategory" && (
+  <div className="absolute top-10 left-0 w-52 bg-gray-900 rounded-lg shadow-lg p-4 space-y-3 z-50">
 
-    {numberOfItems > 0 && (
-      <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
-        {numberOfItems}
-      </span>
-    )}
-  </Link>
-
-</div>
-
-      {/* Mobile Cart Icon & Menu Toggle */}
-      <div className="flex items-center lg:hidden space-x-4">
-        <Link to="/cart" className="relative">
-          <FaShoppingCart className="text-white hover:text-yellow-400 text-2xl" />
-          {numberOfItems > 0 && (
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">{numberOfItems}</span>
-          )}
-        </Link>
-        <button className="text-2xl text-white hover:text-yellow-400" onClick={toggleMenu}>
-          {isMenuOpen ? <IoMdClose /> : <FaBars />}
-        </button>
-      </div>
-
-{/* Mobile Menu Drawer */}
-{isMenuOpen && (
-  <>
-    <div className="fixed top-0 right-0 w-80 h-full bg-gray-900 text-white p-6 shadow-lg z-50 transition-transform transform translate-x-0 flex flex-col">
-      
-      {/* Close Button */}
-      <button
-        className="absolute top-4 right-4 text-2xl text-white hover:text-yellow-400"
-        onClick={toggleMenu}
-      >
-        <IoMdClose />
-      </button>
-
-      {/* Menu Links */}
-      <div className="mt-10 flex flex-col gap-5">
-        <Link
-          to="/"
-          className="hover:text-yellow-400"
-          onClick={toggleMenu}
-        >
-          HOME
-        </Link>
-
-        <button
-          onClick={() => toggleDropdown("category")}
-          className="flex items-center hover:text-yellow-400"
-        >
-          CATEGORY{" "}
-          {activeDropdown === "category" ? (
-            <FaChevronUp />
-          ) : (
-            <FaChevronDown />
-          )}
-        </button>
-
-        {activeDropdown === "category" && (
-  <div className="ml-4 bg-gray-800 rounded-lg p-4 space-y-3">
     <Link
-      to="/category/headphones"
+      to="/products"
+      className="block hover:text-yellow-400 font-semibold border-b border-gray-700 pb-2"
+      onClick={() => setActiveDropdown(null)}
+    >
+      All Products
+    </Link>
+
+    <Link
+      to="/products/headphones"
       className="block hover:text-yellow-400"
-      onClick={toggleMenu}
+      onClick={() => setActiveDropdown(null)}
     >
       Headphones
     </Link>
 
     <Link
-      to="/category/charger"
+      to="/products/charger"
       className="block hover:text-yellow-400"
-      onClick={toggleMenu}
+      onClick={() => setActiveDropdown(null)}
     >
       Charger
     </Link>
 
     <Link
-      to="/category/cover"
+      to="/products/cover"
       className="block hover:text-yellow-400"
-      onClick={toggleMenu}
+      onClick={() => setActiveDropdown(null)}
     >
       Cover
     </Link>
 
     <Link
-      to="/category/earphone"
+      to="/products/earphone"
       className="block hover:text-yellow-400"
-      onClick={toggleMenu}
+      onClick={() => setActiveDropdown(null)}
     >
       Earphone
     </Link>
 
     <Link
-      to="/category/powerbank"
+      to="/products/powerbank"
       className="block hover:text-yellow-400"
-      onClick={toggleMenu}
+      onClick={() => setActiveDropdown(null)}
     >
       Powerbank
     </Link>
   </div>
 )}
+            </div>
 
-        <Link to="/order" onClick={toggleMenu}>
-          MY ORDERS
-        </Link>
+            <Link
+              to="/order"
+              className="hover:text-yellow-400"
+            >
+              MY ORDERS
+            </Link>
 
-        <Link to="/refer" onClick={toggleMenu}>
-          REFER & EARN
-        </Link>
+            <Link
+              to="/refer"
+              className="hover:text-yellow-400"
+            >
+              REFER & EARN
+            </Link>
 
-        <Link to="/about" onClick={toggleMenu}>
-          ABOUT US
-        </Link>
-      </div>
+            <Link
+              to="/about"
+              className="hover:text-yellow-400"
+            >
+              ABOUT US
+            </Link>
+          </div>
 
-      {/* Bottom Login Button */}
-      <div className="mt-auto pb-6">
-        <Link
-          to="/login"
+          {/* Desktop Right Section */}
+          <div className="hidden lg:flex items-center gap-5">
+
+            {/* Notification */}
+            <Link to="/notifications" className="relative">
+              <FaBell className="text-2xl hover:text-yellow-400 transition" />
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">
+                2
+              </span>
+            </Link>
+
+            {/* Wishlist */}
+            <Link to="/wishlist" className="relative">
+              <FaHeart className="text-2xl hover:text-yellow-400 transition" />
+            </Link>
+
+            {/* Cart */}
+            <Link to="/cart" className="relative">
+              <FaShoppingCart className="text-2xl hover:text-yellow-400" />
+
+              {numberOfItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-xs px-1 rounded-full">
+                  {numberOfItems}
+                </span>
+              )}
+            </Link>
+
+            {/* Login Button */}
+            <Link
+              to="/login"
+              className="bg-yellow-400 text-black px-5 py-2 rounded-full font-semibold hover:bg-yellow-500 transition"
+            >
+              Login
+            </Link>
+          </div>
+
+          {/* Mobile Menu + Cart */}
+          <div className="flex lg:hidden items-center gap-4">
+
+          {/* Notification */}
+          <Link to="/notifications" className="relative">
+            <FaBell className="text-xl" />
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">
+              2
+            </span>
+          </Link>
+
+          {/* Wishlist */}
+          <Link to="/wishlist">
+            <FaHeart className="text-xl" />
+          </Link>
+
+          {/* Cart */}
+          <Link to="/cart" className="relative">
+            <FaShoppingCart className="text-xl" />
+
+            {numberOfItems > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-xs px-1 rounded-full">
+                {numberOfItems}
+              </span>
+            )}
+          </Link>
+
+          {/* Menu */}
+          <button
+            onClick={toggleMenu}
+            className="text-2xl"
+          >
+            <FaBars />
+          </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Background Overlay */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40"
           onClick={toggleMenu}
-          className="block w-full text-center bg-yellow-400 text-black py-3 rounded-xl font-semibold hover:bg-yellow-500 transition"
-        >
-          Login
-        </Link>
-      </div>
-    </div>
-  </>
+        ></div>
+      )}
+
+      {/* Mobile Drawer */}
+      <div
+        className={`fixed top-0 right-0 h-full w-72 bg-gray-900 text-white z-50 transform transition-transform duration-300 ${
+          isMenuOpen
+            ? "translate-x-0"
+            : "translate-x-full"
+        }`}
+      >
+        <div className="p-6 flex flex-col h-full">
+
+          {/* Close Button */}
+          <button
+            className="self-end text-3xl"
+            onClick={toggleMenu}
+          >
+            <IoMdClose />
+          </button>
+
+          {/* Mobile Links */}
+          <div className="mt-8 flex flex-col gap-5">
+
+            <Link
+              to="/"
+              onClick={toggleMenu}
+              className="hover:text-yellow-400"
+            >
+              HOME
+            </Link>
+
+            {/* Mobile Category Dropdown */}
+            <div>
+              <button
+                onClick={() =>
+                  toggleDropdown("mobileCategory")
+                }
+                className="flex items-center justify-between w-full hover:text-yellow-400"
+              >
+                CATEGORY
+
+                {activeDropdown === "mobileCategory" ? (
+                  <FaChevronUp />
+                ) : (
+                  <FaChevronDown />
+                )}
+              </button>
+
+{activeDropdown === "mobileCategory" && (
+  <div className="bg-gray-800 rounded-xl p-4 mt-3 space-y-3">
+
+    <Link
+      to="/products"
+      onClick={toggleMenu}
+      className="block hover:text-yellow-400 font-semibold border-b border-gray-600 pb-2"
+    >
+      All Products
+    </Link>
+
+    <Link
+      to="/products/headphones"
+      onClick={toggleMenu}
+      className="block hover:text-yellow-400"
+    >
+      Headphones
+    </Link>
+
+    <Link
+      to="/products/charger"
+      onClick={toggleMenu}
+      className="block hover:text-yellow-400"
+    >
+      Charger
+    </Link>
+
+    <Link
+      to="/products/cover"
+      onClick={toggleMenu}
+      className="block hover:text-yellow-400"
+    >
+      Cover
+    </Link>
+
+    <Link
+      to="/products/earphone"
+      onClick={toggleMenu}
+      className="block hover:text-yellow-400"
+    >
+      Earphone
+    </Link>
+
+    <Link
+      to="/products/powerbank"
+      onClick={toggleMenu}
+      className="block hover:text-yellow-400"
+    >
+      Powerbank
+    </Link>
+  </div>
 )}
-    </nav>
+            </div>
+
+            <Link
+              to="/order"
+              onClick={toggleMenu}
+              className="hover:text-yellow-400"
+            >
+              MY ORDERS
+            </Link>
+
+            <Link
+              to="/refer"
+              onClick={toggleMenu}
+              className="hover:text-yellow-400"
+            >
+              REFER & EARN
+            </Link>
+
+            <Link
+              to="/about"
+              onClick={toggleMenu}
+              className="hover:text-yellow-400"
+            >
+              ABOUT US
+            </Link>
+          </div>
+
+          {/* Bottom Login Button */}
+          <div className="mt-auto">
+            <Link
+              to="/login"
+              onClick={toggleMenu}
+              className="block w-full text-center bg-yellow-400 text-black py-3 rounded-xl font-semibold hover:bg-yellow-500 transition"
+            >
+              Login
+            </Link>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
