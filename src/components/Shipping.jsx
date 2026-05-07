@@ -1,74 +1,92 @@
 // import React from "react";
-// import { FaShippingFast, FaMoneyBillWave, FaBoxOpen } from "react-icons/fa";
+// import { FaShippingFast, FaMoneyBillWave, FaBoxOpen, FaHeadset } from "react-icons/fa";
 
 // const ShippingPolicy = () => {
 //   return (
-//     <div className="bg-gray-100 py-16 px-6 md:px-12">
-//       <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-8">
-       
-//         <h2 className="text-3xl font-extrabold text-gray-800 text-center mb-6">
-//           Shipping and Delivery Policy
-//         </h2>
+//     <div className="bg-gradient-to-br from-gray-100 to-gray-200 py-16 px-6 md:px-12">
+//       <div className="max-w-5xl mx-auto">
 
-       
-//         <div className="mb-6">
-//           <div className="flex items-center mb-3">
-//             <FaShippingFast className="text-blue-600 text-2xl mr-2" />
-//             <h3 className="text-xl font-semibold text-gray-700">
-//               How long will it take for my order to be delivered?
-//             </h3>
-//           </div>
-//           <p className="text-gray-600 leading-relaxed">
-//             1. We have distinct shipping timelines for each product, and you can
-//             find this information listed under the respective product pages. Our
-//             standard delivery timeline is <strong>3-5 working days</strong> after
-//             shipping, depending on the location.
-//           </p>
-//           <p className="text-gray-600 leading-relaxed mt-2">
-//             2. If the order is shipped via Speedpost, the delivery time may
-//             extend to <strong>7-10 working days</strong>, depending on the
-//             location.
+//         {/* Header */}
+//         <div className="text-center mb-10">
+//           <h2 className="text-4xl font-extrabold text-gray-800 mb-2">
+//             Shipping & Delivery Policy
+//           </h2>
+//           <p className="text-gray-500 max-w-xl mx-auto">
+//             Fast, reliable, and secure delivery across India. Know everything about our shipping process.
 //           </p>
 //         </div>
 
-//         <hr className="border-gray-300 my-6" />
+//         {/* Card Container */}
+//         <div className="grid md:grid-cols-2 gap-8">
 
-       
-//         <div className="mb-6">
-//           <div className="flex items-center mb-3">
-//             <FaMoneyBillWave className="text-green-600 text-2xl mr-2" />
-//             <h3 className="text-xl font-semibold text-gray-700">
-//               What is the price for the shipping?
-//             </h3>
+//           {/* Delivery Time */}
+//           <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
+//             <div className="flex items-center mb-4">
+//               <FaShippingFast className="text-blue-600 text-3xl mr-3" />
+//               <h3 className="text-xl font-semibold">Delivery Time</h3>
+//             </div>
+//             <p className="text-gray-600">
+//               Standard delivery takes <strong>3-5 working days</strong> depending on your location.
+//             </p>
+//             <p className="text-gray-600 mt-2">
+//               Speedpost delivery may take <strong>7-10 working days</strong>.
+//             </p>
 //           </div>
-//           <p className="text-gray-600 leading-relaxed">
-//             We offer two shipping options: <strong>Prepaid</strong> and{" "}
-//             <strong>COD (Cash on Delivery)</strong>. For prepaid shipping, the
-//             minimum order value is <strong>Rs. 400</strong>. Orders below this
-//             value will incur a shipping charge of <strong>Rs. 69</strong>. For
-//             COD shipping, there is a delivery charge of <strong>Rs. 99</strong>.
-//           </p>
+
+//           {/* Shipping Charges */}
+//           <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
+//             <div className="flex items-center mb-4">
+//               <FaMoneyBillWave className="text-green-600 text-3xl mr-3" />
+//               <h3 className="text-xl font-semibold">Shipping Charges</h3>
+//             </div>
+//             <p className="text-gray-600">
+//               Free shipping on prepaid orders above <strong>₹400</strong>.
+//             </p>
+//             <p className="text-gray-600 mt-2">
+//               Below ₹400: <strong>₹69</strong> | COD: <strong>₹99</strong>
+//             </p>
+//           </div>
+
+//           {/* Failed Delivery */}
+//           <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
+//             <div className="flex items-center mb-4">
+//               <FaBoxOpen className="text-red-600 text-3xl mr-3" />
+//               <h3 className="text-xl font-semibold">Failed Delivery</h3>
+//             </div>
+//             <p className="text-gray-600">
+//               Our courier will attempt delivery <strong>3 times</strong>.
+//             </p>
+//             <p className="text-gray-600 mt-2">
+//               If unsuccessful, refund will be added to your wallet.
+//             </p>
+//           </div>
+
+//           {/* Support Section */}
+//           <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
+//             <div className="flex items-center mb-4">
+//               <FaHeadset className="text-purple-600 text-3xl mr-3" />
+//               <h3 className="text-xl font-semibold">Need Help?</h3>
+//             </div>
+//             <p className="text-gray-600">
+//               Our support team is available 24/7 to assist you with your orders.
+//             </p>
+//             <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+//               Contact Support
+//             </button>
+//           </div>
+
 //         </div>
 
-//         <hr className="border-gray-300 my-6" />
-
-       
-//         <div>
-//           <div className="flex items-center mb-3">
-//             <FaBoxOpen className="text-red-600 text-2xl mr-2" />
-//             <h3 className="text-xl font-semibold text-gray-700">
-//               What if my order doesn’t get delivered?
-//             </h3>
-//           </div>
-//           <p className="text-gray-600 leading-relaxed">
-//             Our courier partner will make <strong>three delivery attempts</strong>. 
-//             If the product cannot be delivered, a refund will be credited to your 
-//             <strong>Mobile Accessories Wallet</strong>. You can redeem this refund 
-//             on your next order with us.
-//           </p>
+//         {/* Bottom Note */}
+//         <div className="text-center mt-12 text-gray-500 text-sm">
+//           *Delivery timelines may vary during festivals or high demand periods.
 //         </div>
+
 //       </div>
+//       {/* Footer always at bottom */}
+//       <Footer />
 //     </div>
+     
 //   );
 // };
 
@@ -77,93 +95,105 @@
 
 
 
-
 import React from "react";
-import { FaShippingFast, FaMoneyBillWave, FaBoxOpen, FaHeadset } from "react-icons/fa";
+import {
+  FaShippingFast,
+  FaMoneyBillWave,
+  FaBoxOpen,
+  FaHeadset
+} from "react-icons/fa";
+
+import Footer from "../components/Footer"; // Footer import karo
 
 const ShippingPolicy = () => {
   return (
-    <div className="bg-gradient-to-br from-gray-100 to-gray-200 py-16 px-6 md:px-12">
-      <div className="max-w-5xl mx-auto">
+    <>
+      <div className="bg-gradient-to-br from-gray-100 to-gray-200 py-16 px-6 md:px-12">
+        <div className="max-w-5xl mx-auto">
 
-        {/* Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-4xl font-extrabold text-gray-800 mb-2">
-            Shipping & Delivery Policy
-          </h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
-            Fast, reliable, and secure delivery across India. Know everything about our shipping process.
-          </p>
+          {/* Header */}
+          <div className="text-center mb-10">
+            <h2 className="text-4xl font-extrabold text-gray-800 mb-2">
+              Shipping & Delivery Policy
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto">
+              Fast, reliable, and secure delivery across India.
+              Know everything about our shipping process.
+            </p>
+          </div>
+
+          {/* Card Container */}
+          <div className="grid md:grid-cols-2 gap-8">
+
+            {/* Delivery Time */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
+              <div className="flex items-center mb-4">
+                <FaShippingFast className="text-blue-600 text-3xl mr-3" />
+                <h3 className="text-xl font-semibold">Delivery Time</h3>
+              </div>
+              <p className="text-gray-600">
+                Standard delivery takes <strong>3-5 working days</strong>
+                depending on your location.
+              </p>
+              <p className="text-gray-600 mt-2">
+                Speedpost delivery may take <strong>7-10 working days</strong>.
+              </p>
+            </div>
+
+            {/* Shipping Charges */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
+              <div className="flex items-center mb-4">
+                <FaMoneyBillWave className="text-green-600 text-3xl mr-3" />
+                <h3 className="text-xl font-semibold">Shipping Charges</h3>
+              </div>
+              <p className="text-gray-600">
+                Free shipping on prepaid orders above <strong>₹400</strong>.
+              </p>
+              <p className="text-gray-600 mt-2">
+                Below ₹400: <strong>₹69</strong> | COD: <strong>₹99</strong>
+              </p>
+            </div>
+
+            {/* Failed Delivery */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
+              <div className="flex items-center mb-4">
+                <FaBoxOpen className="text-red-600 text-3xl mr-3" />
+                <h3 className="text-xl font-semibold">Failed Delivery</h3>
+              </div>
+              <p className="text-gray-600">
+                Our courier will attempt delivery <strong>3 times</strong>.
+              </p>
+              <p className="text-gray-600 mt-2">
+                If unsuccessful, refund will be added to your wallet.
+              </p>
+            </div>
+
+            {/* Support Section */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
+              <div className="flex items-center mb-4">
+                <FaHeadset className="text-purple-600 text-3xl mr-3" />
+                <h3 className="text-xl font-semibold">Need Help?</h3>
+              </div>
+              <p className="text-gray-600">
+                Our support team is available 24/7 to assist you.
+              </p>
+              <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                Contact Support
+              </button>
+            </div>
+          </div>
+
+          {/* Bottom Note */}
+          <div className="text-center mt-12 text-gray-500 text-sm">
+            *Delivery timelines may vary during festivals or high demand periods.
+          </div>
+
         </div>
-
-        {/* Card Container */}
-        <div className="grid md:grid-cols-2 gap-8">
-
-          {/* Delivery Time */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
-            <div className="flex items-center mb-4">
-              <FaShippingFast className="text-blue-600 text-3xl mr-3" />
-              <h3 className="text-xl font-semibold">Delivery Time</h3>
-            </div>
-            <p className="text-gray-600">
-              Standard delivery takes <strong>3-5 working days</strong> depending on your location.
-            </p>
-            <p className="text-gray-600 mt-2">
-              Speedpost delivery may take <strong>7-10 working days</strong>.
-            </p>
-          </div>
-
-          {/* Shipping Charges */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
-            <div className="flex items-center mb-4">
-              <FaMoneyBillWave className="text-green-600 text-3xl mr-3" />
-              <h3 className="text-xl font-semibold">Shipping Charges</h3>
-            </div>
-            <p className="text-gray-600">
-              Free shipping on prepaid orders above <strong>₹400</strong>.
-            </p>
-            <p className="text-gray-600 mt-2">
-              Below ₹400: <strong>₹69</strong> | COD: <strong>₹99</strong>
-            </p>
-          </div>
-
-          {/* Failed Delivery */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
-            <div className="flex items-center mb-4">
-              <FaBoxOpen className="text-red-600 text-3xl mr-3" />
-              <h3 className="text-xl font-semibold">Failed Delivery</h3>
-            </div>
-            <p className="text-gray-600">
-              Our courier will attempt delivery <strong>3 times</strong>.
-            </p>
-            <p className="text-gray-600 mt-2">
-              If unsuccessful, refund will be added to your wallet.
-            </p>
-          </div>
-
-          {/* Support Section */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
-            <div className="flex items-center mb-4">
-              <FaHeadset className="text-purple-600 text-3xl mr-3" />
-              <h3 className="text-xl font-semibold">Need Help?</h3>
-            </div>
-            <p className="text-gray-600">
-              Our support team is available 24/7 to assist you with your orders.
-            </p>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-              Contact Support
-            </button>
-          </div>
-
-        </div>
-
-        {/* Bottom Note */}
-        <div className="text-center mt-12 text-gray-500 text-sm">
-          *Delivery timelines may vary during festivals or high demand periods.
-        </div>
-
       </div>
-    </div>
+
+      {/* Footer at bottom */}
+      <Footer />
+    </>
   );
 };
 

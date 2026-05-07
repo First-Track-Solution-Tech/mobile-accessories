@@ -87,6 +87,7 @@
 
 
 import React from "react";
+import Footer from "../components/Footer"; // Footer import
 import {
   FaUserShield,
   FaLock,
@@ -101,6 +102,7 @@ import {
 
 const PrivacyPolicy = () => {
   return (
+    <>
     <div className="bg-gradient-to-br from-gray-100 via-blue-50 to-white py-16 px-6 md:px-12">
       <div className="max-w-5xl mx-auto bg-white shadow-2xl rounded-2xl p-10">
 
@@ -224,6 +226,9 @@ const PrivacyPolicy = () => {
 
       </div>
     </div>
+    {/* Footer always at bottom */}
+    <Footer />
+  </>
   );
 };
 
