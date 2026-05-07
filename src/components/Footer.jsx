@@ -3,10 +3,13 @@
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import React from 'react';
+import ChatBox from "./ChatBox";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-slate-900 via-gray-900 to-black text-white pt-14 pb-6 px-6">
+    <>
+    <div className="relative">
+    <footer className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-gray-300 pt-12 pb-24 md:pb-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
 
         {/* Brand Section */}
@@ -104,6 +107,9 @@ const Footer = () => {
         </span>
       </div>
     </footer>
+    <ChatBox />
+    </div>
+    </>
   );
 };
 

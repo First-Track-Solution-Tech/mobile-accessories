@@ -21,6 +21,12 @@ import Returns from "./components/Return";
 import Terms from "./components/Term";
 import Privacy from "./components/Privacy";
 import LoginPage from "./components/LoginPage";
+import BottomNav from "./components/BottomNav";
+import ChatBox from "./components/ChatBox";
+
+
+
+
 import CartPage from "./pages/CartPage";
 import AddressPage from "./pages/AddressPage.jsx";
 import Confirmation from "./pages/Confirmation";
@@ -30,6 +36,7 @@ import Payment from "./pages/PaymentPage";
 import RegisterPage from "./pages/RegisterPage";
 import ReturnExchange from "./pages/ReturnExchange.jsx";
 import RefundCancellation from "./pages/RefundCancellation.jsx"
+import Wishlist from "./pages/Wishlist";
 
 const App = () => {
   return (
@@ -53,6 +60,8 @@ const App = () => {
                   <OverTeam />
                   <Newsletter />
                   <Footer />
+                  {/* <ChatBox /> */}
+                  
                 </>
               }
             />
@@ -74,6 +83,7 @@ const App = () => {
 <Route path="/product/:id" element={<ProductDetail />} />
 
 <Route path="/cart" element={<CartPage />} />
+<Route path="/wishlist" element={<Wishlist />} />
 <Route path="/address" element={<AddressPage />} />
 <Route path="/confirmation" element={<Confirmation />} />
 
@@ -84,9 +94,12 @@ const App = () => {
             <Route path="/refund-cancellation" element={<RefundCancellation />} />
           </Routes>
         </div>
+        {/* BottomNav Router ke andar */}
+    <BottomNav />
       </div>
     </Router>
     </CartProvider>
+  
   );
 };
 
