@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../assets/logo.jpg";
 import {
   FaShoppingCart,
@@ -15,10 +15,38 @@ import { useSelector } from "react-redux";
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-
+  const [wishlistCount, setWishlistCount] = useState(0);
   const numberOfItems = useSelector(
     (state) => state.cart.totalItems
   );
+  // ADD THIS useEffect HERE
+  useEffect(() => {
+
+    const updateWishlistCount = () => {
+
+      const wishlist =
+        JSON.parse(localStorage.getItem("wishlist")) || [];
+
+      setWishlistCount(wishlist.length);
+    };
+
+    // First Load
+    updateWishlistCount();
+
+    // Auto Update
+    window.addEventListener(
+      "wishlistUpdated",
+      updateWishlistCount
+    );
+
+    return () => {
+      window.removeEventListener(
+        "wishlistUpdated",
+        updateWishlistCount
+      );
+    };
+
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -34,8 +62,7 @@ function Navbar() {
     <>
       {/* Navbar */}
       <nav className="w-full bg-zinc-700 text-white shadow-lg sticky top-0 z-50">
-        <div className="flex items-center justify-between px-6 py-4">
-
+      <div className="flex items-center justify-between px-6 py-2">
           {/* Logo */}
           <Link to="/">
               <img
@@ -156,8 +183,16 @@ function Navbar() {
 
             {/* Wishlist */}
             <Link to="/wishlist" className="relative">
+
               <FaHeart className="text-2xl hover:text-yellow-400 transition" />
-            </Link>
+
+              {wishlistCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">
+                  {wishlistCount}
+                </span>
+              )}
+
+              </Link>
 
             {/* Cart */}
             <Link to="/cart" className="relative">
@@ -180,7 +215,7 @@ function Navbar() {
           </div>
 
           {/* Mobile Menu + Cart */}
-          <div className="flex lg:hidden items-center gap-4">
+          <div className="flex lg:hidden items-center gap-3">
 
           {/* Notification */}
           <Link to="/notifications" className="relative">
@@ -191,9 +226,17 @@ function Navbar() {
           </Link>
 
           {/* Wishlist */}
-          <Link to="/wishlist">
+          <Link to="/wishlist" className="relative">
+
             <FaHeart className="text-xl" />
-          </Link>
+
+            {wishlistCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">
+                {wishlistCount}
+              </span>
+            )}
+
+            </Link>
 
           {/* Cart */}
           <Link to="/cart" className="relative">

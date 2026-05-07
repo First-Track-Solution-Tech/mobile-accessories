@@ -10,150 +10,198 @@ import {
 
 const RegisterPage = () => {
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gradient-to-r from-blue-100 via-white to-purple-100 px-4 py-10">
-      
-      <div className="bg-white w-full max-w-md p-8 rounded-2xl shadow-2xl">
-        
-        {/* Heading */}
-        <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-gray-800">
-            Create Account
-          </h2>
-          <p className="text-gray-500 mt-2">
-            Join Mobile Shop and start shopping today
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-indigo-900 to-black px-4 py-8">
+
+      <div className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+
+        {/* Left Side */}
+        <div className="hidden md:flex flex-col justify-center bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-700 text-white p-10 relative">
+          
+          <div className="absolute top-6 left-6">
+            <img
+              src="/Logo_Design.png"
+              alt="logo"
+              className="w-16 h-16 rounded-full"
+            />
+          </div>
+
+          <h1 className="text-4xl font-bold mb-4 mt-10">
+            Join Mobile Shop 🚀
+          </h1>
+
+          <p className="text-lg text-gray-200 leading-relaxed">
+            Create your account and get access to:
           </p>
+
+          <ul className="mt-6 space-y-4 text-lg">
+            <li>✅ Exclusive Discounts</li>
+            <li>✅ Faster Checkout</li>
+            <li>✅ Order Tracking</li>
+            <li>✅ Wishlist Saving</li>
+            <li>✅ Special Member Offers</li>
+          </ul>
+
+          <div className="mt-10">
+            <img
+              src="/assets/register-banner.png"
+              alt="register"
+              className="w-full max-w-sm mx-auto"
+            />
+          </div>
         </div>
 
-        <form className="space-y-4">
-          
-          {/* Full Name */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Full Name
-            </label>
-            <div className="flex items-center border rounded-xl p-3 bg-gray-50 focus-within:border-blue-500">
-              <FaUser className="text-gray-500 mr-3" />
-              <input
-                type="text"
-                placeholder="Enter your full name"
-                className="w-full bg-transparent outline-none"
-              />
-            </div>
-          </div>
+        {/* Right Side Form */}
+        <div className="p-8 md:p-10">
 
-          {/* Email */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Email Address
-            </label>
-            <div className="flex items-center border rounded-xl p-3 bg-gray-50 focus-within:border-blue-500">
-              <FaEnvelope className="text-gray-500 mr-3" />
-              <input
-                type="email"
-                placeholder="you@example.com"
-                className="w-full bg-transparent outline-none"
-              />
-            </div>
-          </div>
+          {/* Heading */}
+          <div className="text-center mb-6">
+            <h2 className="text-3xl font-bold text-gray-800">
+              Create Account
+            </h2>
 
-          {/* Mobile Number */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Mobile Number
-            </label>
-            <div className="flex items-center border rounded-xl p-3 bg-gray-50 focus-within:border-blue-500">
-              <FaMobileAlt className="text-gray-500 mr-3" />
-              <input
-                type="tel"
-                placeholder="Enter mobile number"
-                className="w-full bg-transparent outline-none"
-              />
-            </div>
-          </div>
-
-          {/* Password */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Password
-            </label>
-            <div className="flex items-center border rounded-xl p-3 bg-gray-50 focus-within:border-blue-500">
-              <FaLock className="text-gray-500 mr-3" />
-              <input
-                type="password"
-                placeholder="Create password"
-                className="w-full bg-transparent outline-none"
-              />
-            </div>
-          </div>
-
-          {/* Confirm Password */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Confirm Password
-            </label>
-            <div className="flex items-center border rounded-xl p-3 bg-gray-50 focus-within:border-blue-500">
-              <FaLock className="text-gray-500 mr-3" />
-              <input
-                type="password"
-                placeholder="Confirm password"
-                className="w-full bg-transparent outline-none"
-              />
-            </div>
-          </div>
-
-          {/* Terms Checkbox */}
-          <div className="flex items-start gap-2 text-sm text-gray-600">
-            <input type="checkbox" className="mt-1" />
-            <p>
-              I agree to the{" "}
-              <Link
-                to="/terms"
-                className="text-blue-600 font-medium hover:underline"
-              >
-                Terms & Conditions
-              </Link>{" "}
-              and{" "}
-              <Link
-                to="/privacy"
-                className="text-blue-600 font-medium hover:underline"
-              >
-                Privacy Policy
-              </Link>
+            <p className="text-gray-500 mt-2">
+              Register to start shopping
             </p>
           </div>
 
-          {/* Register Button */}
-          <button
-            type="submit"
-            className="w-full bg-black text-white py-3 rounded-xl font-semibold hover:bg-blue-600 transition duration-300"
-          >
-            Create Account
+          <form className="space-y-4">
+
+            {/* Full Name */}
+            <div>
+              <label className="text-sm font-medium text-gray-700">
+                Full Name
+              </label>
+
+              <div className="flex items-center mt-2 border rounded-xl px-4 py-3 bg-gray-50 focus-within:border-blue-500">
+                <FaUser className="text-gray-400 mr-3" />
+                <input
+                  type="text"
+                  placeholder="Enter full name"
+                  className="w-full bg-transparent outline-none"
+                />
+              </div>
+            </div>
+
+            {/* Email */}
+            <div>
+              <label className="text-sm font-medium text-gray-700">
+                Email Address
+              </label>
+
+              <div className="flex items-center mt-2 border rounded-xl px-4 py-3 bg-gray-50 focus-within:border-blue-500">
+                <FaEnvelope className="text-gray-400 mr-3" />
+                <input
+                  type="email"
+                  placeholder="Enter email"
+                  className="w-full bg-transparent outline-none"
+                />
+              </div>
+            </div>
+
+            {/* Mobile */}
+            <div>
+              <label className="text-sm font-medium text-gray-700">
+                Mobile Number
+              </label>
+
+              <div className="flex items-center mt-2 border rounded-xl px-4 py-3 bg-gray-50 focus-within:border-blue-500">
+                <FaMobileAlt className="text-gray-400 mr-3" />
+                <input
+                  type="text"
+                  placeholder="Enter mobile number"
+                  className="w-full bg-transparent outline-none"
+                />
+              </div>
+            </div>
+
+            {/* Password */}
+            <div>
+              <label className="text-sm font-medium text-gray-700">
+                Password
+              </label>
+
+              <div className="flex items-center mt-2 border rounded-xl px-4 py-3 bg-gray-50 focus-within:border-blue-500">
+                <FaLock className="text-gray-400 mr-3" />
+                <input
+                  type="password"
+                  placeholder="Create password"
+                  className="w-full bg-transparent outline-none"
+                />
+              </div>
+            </div>
+
+            {/* Confirm Password */}
+            <div>
+              <label className="text-sm font-medium text-gray-700">
+                Confirm Password
+              </label>
+
+              <div className="flex items-center mt-2 border rounded-xl px-4 py-3 bg-gray-50 focus-within:border-blue-500">
+                <FaLock className="text-gray-400 mr-3" />
+                <input
+                  type="password"
+                  placeholder="Confirm password"
+                  className="w-full bg-transparent outline-none"
+                />
+              </div>
+            </div>
+
+            {/* Terms */}
+            <div className="flex items-start gap-2 text-sm text-gray-600">
+              <input type="checkbox" className="mt-1" />
+
+              <p>
+                I agree to the{" "}
+                <Link
+                  to="/terms"
+                  className="text-blue-600 font-medium"
+                >
+                  Terms
+                </Link>{" "}
+                &{" "}
+                <Link
+                  to="/privacy"
+                  className="text-blue-600 font-medium"
+                >
+                  Privacy Policy
+                </Link>
+              </p>
+            </div>
+
+            {/* Register Button */}
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-3 rounded-xl font-semibold hover:scale-105 transition duration-300 shadow-lg"
+            >
+              Create Account
+            </button>
+          </form>
+
+          {/* Divider */}
+          <div className="flex items-center my-6">
+            <hr className="flex-grow border-gray-300" />
+            <span className="px-3 text-gray-400 text-sm">OR</span>
+            <hr className="flex-grow border-gray-300" />
+          </div>
+
+          {/* Google Signup */}
+          <button className="w-full border border-gray-300 py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-100 transition">
+            <FaGoogle className="text-red-500" />
+            Continue with Google
           </button>
-        </form>
 
-        {/* Divider */}
-        <div className="flex items-center my-5">
-          <hr className="flex-grow border-gray-300" />
-          <span className="px-3 text-gray-400 text-sm">OR</span>
-          <hr className="flex-grow border-gray-300" />
+          {/* Login Link */}
+          <p className="text-center text-gray-600 mt-6">
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              className="text-blue-600 font-semibold hover:underline"
+            >
+              Sign In
+            </Link>
+          </p>
+
         </div>
-
-        {/* Google Signup */}
-        <button className="w-full border border-gray-300 py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-100 transition">
-          <FaGoogle className="text-red-500" />
-          Continue with Google
-        </button>
-
-        {/* Login Link */}
-        <p className="text-center text-gray-600 mt-5">
-          Already have an account?{" "}
-          <Link
-            to="/login"
-            className="text-blue-600 font-semibold hover:underline"
-          >
-            Sign In
-          </Link>
-        </p>
       </div>
     </div>
   );

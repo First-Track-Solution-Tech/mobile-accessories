@@ -2,10 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
-import { useSelector, useDispatch } from 'react-redux'
-import { addItem, removeItem } from '../redux/cartslice/cartslice'
-
-
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux/cartslice/cartslice";
 const productData = {
    1: [ //bluetooth earphones
     { id: 101, name: "Wireless Earbuds", originalPrice: "2500", offerPrice: "1500", image: "/assets/BT-Earphones-1.jpg" },
@@ -101,7 +99,30 @@ const ProductDetail = () => {
     dispatch(addItem({item : product}));
   };
   const handleWishlist = (product) => {
-    alert(`${product.name} added to wishlist ❤️`);
+
+    // Old wishlist get karo
+    const existingWishlist =
+      JSON.parse(localStorage.getItem("wishlist")) || [];
+  
+    // Duplicate check
+    const alreadyExists = existingWishlist.find(
+      (item) => item.id === product.id
+    );
+  
+    if (!alreadyExists) {
+      existingWishlist.push(product);
+  
+      localStorage.setItem(
+        "wishlist",
+        JSON.stringify(existingWishlist)
+      );
+      
+      // Navbar count auto update
+      window.dispatchEvent(new Event("wishlistUpdated"));
+      alert(`${product.name} added to wishlist ❤️`);
+    } else {
+      alert("Product already in wishlist ❤️");
+    }
   };
 
   return (
@@ -147,23 +168,14 @@ const ProductDetail = () => {
     </p>
 
     {/* Buttons */}
-    <div className="flex gap-2 mt-4">
-      
-      <button
-        onClick={() => handleAddToCart(product)}
-        className="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-      >
-        Add to Cart
-      </button>
-
-      <button
-        onClick={() => handleWishlist(product)}
-        className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-700"
-      >
-        Wishlist
-      </button>
-      
-    </div>
+    <div className="mt-4">
+  <button
+    onClick={() => handleAddToCart(product)}
+    className="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+  >
+    Add to Cart
+  </button>
+</div>
   </div>
 ))}
         </div>
