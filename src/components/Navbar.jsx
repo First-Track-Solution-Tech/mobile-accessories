@@ -279,163 +279,168 @@ function Navbar() {
         ></div>
       )}
 
+      
       {/* Mobile Drawer */}
-      <div
-          className={`fixed top-0 right-0 w-72 h-screen
-          bg-gradient-to-b from-[#111827] via-[#0f172a] to-black
-          backdrop-blur-xl
-          border-l border-white/10
-          text-white z-50 rounded-bl-2xl shadow-2xl
-          transform transition-transform duration-300 ${
-            isMenuOpen
-              ? "translate-x-0"
-              : "translate-x-full"
-          }`}
-      >
-        <div className="p-6 flex flex-col h-full">
-
-          {/* Close Button */}
-          <button
-            className="self-end text-3xl"
-            onClick={toggleMenu}
-          >
-            <IoMdClose />
-          </button>
-
-          {/* Mobile Links */}
-          <div className="mt-8 flex flex-col gap-5">
-
-<Link
-  to="/"
-  onClick={toggleMenu}
-  className={`transition ${
-    location.pathname === "/"
-      ? "text-yellow-400 font-semibold"
-      : "text-white hover:text-yellow-400"
+<div
+  className={`fixed top-0 right-0 w-72 h-auto
+  bg-gradient-to-b from-[#111827] via-[#0f172a] to-black
+  backdrop-blur-xl
+  border-l border-white/10
+  text-white z-50 rounded-bl-2xl shadow-2xl
+  transform transition-transform duration-300 ${
+    isMenuOpen
+      ? "translate-x-0"
+      : "translate-x-full"
   }`}
 >
-  HOME
-</Link>
+  <div className="p-6 flex flex-col h-full">
 
-{/* Mobile Category Dropdown */}
-<div>
-  <button
-    onClick={() => toggleDropdown("mobileCategory")}
-    className={`flex items-center justify-between w-full transition ${
-      location.pathname.includes("/products")
-        ? "text-yellow-400 font-semibold"
-        : "text-white hover:text-yellow-400"
-    }`}
-  >
-    CATEGORY
+    {/* Close Button */}
+    <button
+      className="self-end text-3xl"
+      onClick={toggleMenu}
+    >
+      <IoMdClose />
+    </button>
 
-    {activeDropdown === "mobileCategory" ? (
-      <FaChevronUp />
-    ) : (
-      <FaChevronDown />
-    )}
-  </button>
+    {/* Mobile Links */}
+    <div className="mt-8 flex flex-col gap-5 flex-1">
 
-  {activeDropdown === "mobileCategory" && (
-    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 mt-3 space-y-3">
+      {/* Home */}
       <Link
-        to="/products"
+        to="/"
         onClick={toggleMenu}
-        className="block hover:text-yellow-400"
+        className={`transition ${
+          location.pathname === "/"
+            ? "text-yellow-400 font-semibold"
+            : "text-white hover:text-yellow-400"
+        }`}
       >
-        All Products
+        HOME
       </Link>
 
+      {/* Category */}
+      <div>
+        <button
+          onClick={() => toggleDropdown("mobileCategory")}
+          className={`flex items-center justify-between w-full transition ${
+            location.pathname.includes("/products")
+              ? "text-yellow-400 font-semibold"
+              : "text-white hover:text-yellow-400"
+          }`}
+        >
+          CATEGORY
+
+          {activeDropdown === "mobileCategory" ? (
+            <FaChevronUp />
+          ) : (
+            <FaChevronDown />
+          )}
+        </button>
+
+        {activeDropdown === "mobileCategory" && (
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 mt-3 space-y-3">
+            <Link
+              to="/products"
+              onClick={toggleMenu}
+              className="block hover:text-yellow-400"
+            >
+              All Products
+            </Link>
+
+            <Link
+              to="/products/headphones"
+              onClick={toggleMenu}
+              className="block hover:text-yellow-400"
+            >
+              Headphones
+            </Link>
+
+            <Link
+              to="/products/charger"
+              onClick={toggleMenu}
+              className="block hover:text-yellow-400"
+            >
+              Charger
+            </Link>
+
+            <Link
+              to="/products/cover"
+              onClick={toggleMenu}
+              className="block hover:text-yellow-400"
+            >
+              Cover
+            </Link>
+
+            <Link
+              to="/products/earphone"
+              onClick={toggleMenu}
+              className="block hover:text-yellow-400"
+            >
+              Earphone
+            </Link>
+
+            <Link
+              to="/products/powerbank"
+              onClick={toggleMenu}
+              className="block hover:text-yellow-400"
+            >
+              Powerbank
+            </Link>
+          </div>
+        )}
+      </div>
+
+      {/* Orders */}
       <Link
-        to="/products/headphones"
+        to="/order"
         onClick={toggleMenu}
-        className="block hover:text-yellow-400"
+        className={`transition ${
+          location.pathname === "/order"
+            ? "text-yellow-400 font-semibold"
+            : "text-white hover:text-yellow-400"
+        }`}
       >
-        Headphones
+        MY ORDERS
       </Link>
 
+      {/* Refer */}
       <Link
-        to="/products/charger"
+        to="/refer"
         onClick={toggleMenu}
-        className="block hover:text-yellow-400"
+        className={`transition ${
+          location.pathname === "/refer"
+            ? "text-yellow-400 font-semibold"
+            : "text-white hover:text-yellow-400"
+        }`}
       >
-        Charger
+        REFER & EARN
       </Link>
 
+      {/* About */}
       <Link
-        to="/products/cover"
+        to="/about"
         onClick={toggleMenu}
-        className="block hover:text-yellow-400"
+        className={`transition ${
+          location.pathname === "/about"
+            ? "text-yellow-400 font-semibold"
+            : "text-white hover:text-yellow-400"
+        }`}
       >
-        Cover
+        ABOUT US
       </Link>
 
+      {/* Login Button */}
       <Link
-        to="/products/earphone"
+        to="/login"
         onClick={toggleMenu}
-        className="block hover:text-yellow-400"
+        className="block w-full text-center bg-yellow-400 text-black py-3 rounded-xl font-semibold hover:bg-yellow-500 transition mt-6"
       >
-        Earphone
-      </Link>
-
-      <Link
-        to="/products/powerbank"
-        onClick={toggleMenu}
-        className="block hover:text-yellow-400"
-      >
-        Powerbank
+        Login
       </Link>
     </div>
-  )}
+  </div>
 </div>
-
-<Link
-  to="/order"
-  onClick={toggleMenu}
-  className={`transition ${
-    location.pathname === "/order"
-      ? "text-yellow-400 font-semibold"
-      : "text-white hover:text-yellow-400"
-  }`}
->
-  MY ORDERS
-</Link>
-
-<Link
-  to="/refer"
-  onClick={toggleMenu}
-  className={`transition ${
-    location.pathname === "/refer"
-      ? "text-yellow-400 font-semibold"
-      : "text-white hover:text-yellow-400"
-  }`}
->
-  REFER & EARN
-</Link>
-
-<Link
-  to="/about"
-  onClick={toggleMenu}
-  className={`transition ${
-    location.pathname === "/about"
-      ? "text-yellow-400 font-semibold"
-      : "text-white hover:text-yellow-400"
-  }`}
->
-  ABOUT US
-</Link>
-
-</div>
-          {/* Login Button */}
-<Link
-  to="/login"
-  onClick={toggleMenu}
-  className="block w-full text-center bg-yellow-400 text-black py-3 rounded-xl font-semibold hover:bg-yellow-500 transition mt-2"
->
-  Login
-</Link>
-        </div>
-      </div>
     </>
   );
 }
