@@ -1,81 +1,146 @@
+
+
+
+// import React from "react";
+// import {
+//   Home,
+//   LayoutGrid,
+//   ShoppingCart,
+//   Info,
+//   User,
+// } from "lucide-react";
+
+// import { Link, useLocation } from "react-router-dom";
+
+// const BottomNav = () => {
+//   const location = useLocation();
+
+//   const menus = [
+//     {
+//       name: "Home",
+//       icon: Home,
+//       path: "/",
+//     },
+//     {
+//       name: "Category",
+//       icon: LayoutGrid,
+//       path: "/products",
+//     },
+//     {
+//       name: "Cart",
+//       icon: ShoppingCart,
+//       path: "/cart",
+//     },
+//     {
+//       name: "About",
+//       icon: Info,
+//       path: "/about",
+//     },
+//     {
+//       name: "Login",
+//       icon: User,
+//       path: "/login",
+//     },
+//   ];
+
+//   return (
+//     <div className="fixed bottom-0 left-0 w-full md:hidden z-50">
+      
+//       {/* Bottom Navigation */}
+//       <div className="h-16 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 shadow-2xl flex items-center justify-around">
+        
+//         {menus.map((menu, index) => {
+//           const Icon = menu.icon;
+//           const isActive = location.pathname === menu.path;
+
+//           return (
+//             <Link
+//               key={index}
+//               to={menu.path}
+//               className="flex flex-col items-center justify-center"
+//             >
+              
+//               {/* Icon */}
+//               <div
+//                 className={`p-2 rounded-full transition-all duration-300 ${
+//                   isActive
+//                     ? "bg-yellow-400 text-black -translate-y-1 shadow-lg"
+//                     : "text-white"
+//                 }`}
+//               >
+//                 <Icon size={20} />
+//               </div>
+
+//               {/* Text */}
+//               <span
+//                 className={`text-[10px] mt-1 font-medium ${
+//                   isActive
+//                     ? "text-white"
+//                     : "text-white/80"
+//                 }`}
+//               >
+//                 {menu.name}
+//               </span>
+//             </Link>
+//           );
+//         })}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default BottomNav;
+
+
+
+
 import React from "react";
 import {
   Home,
   LayoutGrid,
-  FileText,
+  ShoppingCart,
   Info,
   User,
 } from "lucide-react";
-
-import {
-  Link,
-  useLocation,
-} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const BottomNav = () => {
   const location = useLocation();
 
   const menus = [
-    {
-      name: "Home",
-      icon: Home,
-      path: "/",
-    },
-    {
-      name: "Category",
-      icon: LayoutGrid,
-      path: "/products",
-    },
-    {
-      name: "Blog",
-      icon: FileText,
-      path: "/blog",
-    },
-    {
-      name: "About",
-      icon: Info,
-      path: "/about",
-    },
-    {
-      name: "Login",
-      icon: User,
-      path: "/login",
-    },
+    { name: "Home", icon: Home, path: "/" },
+    { name: "Category", icon: LayoutGrid, path: "/products" },
+    { name: "Cart", icon: ShoppingCart, path: "/cart" },
+    { name: "About", icon: Info, path: "/about" },
+    { name: "Login", icon: User, path: "/login" },
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 w-full h-14 bg-white border-t border-gray-200 shadow-md z-50 md:hidden">
-      
-      <div className="flex items-center justify-around h-full px-1">
-        {menus.map((menu, index) => {
-          const Icon = menu.icon;
+    <div className="fixed bottom-0 left-0 w-full md:hidden z-50 safe-area-bottom">
 
-          const isActive =
-            location.pathname === menu.path;
+      <div className="h-16 pb-[env(safe-area-inset-bottom)] bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 shadow-2xl flex items-center justify-around">
+
+        {menus.map((menu, i) => {
+          const Icon = menu.icon;
+          const isActive = location.pathname === menu.path;
 
           return (
             <Link
-              key={index}
+              key={i}
               to={menu.path}
-              className={`flex flex-col items-center justify-center transition-all duration-300 ${
-                isActive
-                  ? "text-blue-600"
-                  : "text-gray-500"
-              }`}
+              className="flex flex-col items-center"
             >
-              {/* Icon */}
               <div
-                className={`p-1 rounded-full transition-all duration-300 ${
+                className={`p-2 rounded-full transition ${
                   isActive
-                    ? "bg-blue-100 scale-105"
-                    : ""
+                    ? "bg-yellow-400 text-black -translate-y-1"
+                    : "text-white"
                 }`}
               >
-                <Icon size={18} />
+                <Icon size={20} />
               </div>
 
-              {/* Text */}
-              <span className="mt-0.5 text-[9px] font-medium">
+              <span className={`text-[10px] ${isActive ? "text-white" : "text-white/80"}`}>
                 {menu.name}
               </span>
             </Link>

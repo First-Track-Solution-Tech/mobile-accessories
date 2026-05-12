@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 import {
   FaShoppingCart,
@@ -9,13 +10,14 @@ import {
   FaBell
 } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [wishlistCount, setWishlistCount] = useState(0);
+
+  const location = useLocation();
   const numberOfItems = useSelector(
     (state) => state.cart.totalItems
   );
@@ -48,6 +50,10 @@ function Navbar() {
 
   }, []);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -61,12 +67,12 @@ function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <nav className="w-full bg-zinc-700 text-white shadow-lg sticky top-0 z-50">
+      <nav className="w-full bg-[#0b1220] backdrop-blur-md border-b border-white/10 text-white shadow-lg sticky top-0 z-50">
       <div className="flex items-center justify-between px-6 py-2">
           {/* Logo */}
           <Link to="/">
               <img
-                src="/Logo_Design.png"
+                src="/Logo1_Design.png"
                 alt="logo"
                 className="h-14 w-14 rounded-full object-cover"
               />
@@ -74,18 +80,18 @@ function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-6">
-            <Link
+          <Link
               to="/"
-              className="hover:text-yellow-400 transition"
+              onClick={toggleMenu}
+              className="hover:text-yellow-400 border-b-2 border-transparent hover:border-yellow-400 pb-1 transition-all duration-300"
             >
               HOME
-            </Link>
-
+          </Link>
             {/* Desktop Category Dropdown */}
             <div className="relative">
               <button
                 onClick={() => toggleDropdown("desktopCategory")}
-                className="flex items-center gap-2 hover:text-yellow-400"
+                className="flex items-center justify-between w-full hover:text-yellow-400 border-b-2 border-transparent hover:border-yellow-400 pb-1 transition-all duration-300"
               >
                 CATEGORY
                 {activeDropdown === "desktopCategory" ? (
@@ -95,7 +101,9 @@ function Navbar() {
                 )}
               </button>
               {activeDropdown === "desktopCategory" && (
-  <div className="absolute top-10 left-0 w-52 bg-gray-900 rounded-lg shadow-lg p-4 space-y-3 z-50">
+  <div className="absolute top-10 left-0 w-52 bg-gradient-to-b from-[#111827] via-[#0f172a] to-black
+  backdrop-blur-xl
+  border-l border-white/10 rounded-lg shadow-lg p-4 space-y-3 z-50">
 
     <Link
       to="/products"
@@ -150,21 +158,24 @@ function Navbar() {
 
             <Link
               to="/order"
-              className="hover:text-yellow-400"
+              onClick={toggleMenu}
+              className="hover:text-yellow-400 border-b-2 border-transparent hover:border-yellow-400 pb-1 transition-all duration-300"
             >
               MY ORDERS
             </Link>
 
             <Link
               to="/refer"
-              className="hover:text-yellow-400"
+              onClick={toggleMenu}
+              className="hover:text-yellow-400 border-b-2 border-transparent hover:border-yellow-400 pb-1 transition-all duration-300"
             >
               REFER & EARN
             </Link>
 
             <Link
               to="/about"
-              className="hover:text-yellow-400"
+              onClick={toggleMenu}
+              className="hover:text-yellow-400 border-b-2 border-transparent hover:border-yellow-400 pb-1 transition-all duration-300"
             >
               ABOUT US
             </Link>
@@ -215,7 +226,7 @@ function Navbar() {
           </div>
 
           {/* Mobile Menu + Cart */}
-          <div className="flex lg:hidden items-center gap-3">
+          <div className="flex lg:hidden items-center gap-5 pr-2">
 
           {/* Notification */}
           <Link to="/notifications" className="relative">
@@ -239,7 +250,7 @@ function Navbar() {
             </Link>
 
           {/* Cart */}
-          <Link to="/cart" className="relative">
+          {/* <Link to="/cart" className="relative">
             <FaShoppingCart className="text-xl" />
 
             {numberOfItems > 0 && (
@@ -247,7 +258,7 @@ function Navbar() {
                 {numberOfItems}
               </span>
             )}
-          </Link>
+          </Link> */}
 
           {/* Menu */}
           <button
@@ -270,11 +281,16 @@ function Navbar() {
 
       {/* Mobile Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-72 bg-gray-900 text-white z-50 transform transition-transform duration-300 ${
-          isMenuOpen
-            ? "translate-x-0"
-            : "translate-x-full"
-        }`}
+          className={`fixed top-0 right-0 w-72 h-screen
+          bg-gradient-to-b from-[#111827] via-[#0f172a] to-black
+          backdrop-blur-xl
+          border-l border-white/10
+          text-white z-50 rounded-bl-2xl shadow-2xl
+          transform transition-transform duration-300 ${
+            isMenuOpen
+              ? "translate-x-0"
+              : "translate-x-full"
+          }`}
       >
         <div className="p-6 flex flex-col h-full">
 
@@ -289,120 +305,135 @@ function Navbar() {
           {/* Mobile Links */}
           <div className="mt-8 flex flex-col gap-5">
 
-            <Link
-              to="/"
-              onClick={toggleMenu}
-              className="hover:text-yellow-400"
-            >
-              HOME
-            </Link>
+<Link
+  to="/"
+  onClick={toggleMenu}
+  className={`transition ${
+    location.pathname === "/"
+      ? "text-yellow-400 font-semibold"
+      : "text-white hover:text-yellow-400"
+  }`}
+>
+  HOME
+</Link>
 
-            {/* Mobile Category Dropdown */}
-            <div>
-              <button
-                onClick={() =>
-                  toggleDropdown("mobileCategory")
-                }
-                className="flex items-center justify-between w-full hover:text-yellow-400"
-              >
-                CATEGORY
+{/* Mobile Category Dropdown */}
+<div>
+  <button
+    onClick={() => toggleDropdown("mobileCategory")}
+    className={`flex items-center justify-between w-full transition ${
+      location.pathname.includes("/products")
+        ? "text-yellow-400 font-semibold"
+        : "text-white hover:text-yellow-400"
+    }`}
+  >
+    CATEGORY
 
-                {activeDropdown === "mobileCategory" ? (
-                  <FaChevronUp />
-                ) : (
-                  <FaChevronDown />
-                )}
-              </button>
+    {activeDropdown === "mobileCategory" ? (
+      <FaChevronUp />
+    ) : (
+      <FaChevronDown />
+    )}
+  </button>
 
-{activeDropdown === "mobileCategory" && (
-  <div className="bg-gray-800 rounded-xl p-4 mt-3 space-y-3">
+  {activeDropdown === "mobileCategory" && (
+    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 mt-3 space-y-3">
+      <Link
+        to="/products"
+        onClick={toggleMenu}
+        className="block hover:text-yellow-400"
+      >
+        All Products
+      </Link>
 
-    <Link
-      to="/products"
-      onClick={toggleMenu}
-      className="block hover:text-yellow-400 font-semibold border-b border-gray-600 pb-2"
-    >
-      All Products
-    </Link>
+      <Link
+        to="/products/headphones"
+        onClick={toggleMenu}
+        className="block hover:text-yellow-400"
+      >
+        Headphones
+      </Link>
 
-    <Link
-      to="/products/headphones"
-      onClick={toggleMenu}
-      className="block hover:text-yellow-400"
-    >
-      Headphones
-    </Link>
+      <Link
+        to="/products/charger"
+        onClick={toggleMenu}
+        className="block hover:text-yellow-400"
+      >
+        Charger
+      </Link>
 
-    <Link
-      to="/products/charger"
-      onClick={toggleMenu}
-      className="block hover:text-yellow-400"
-    >
-      Charger
-    </Link>
+      <Link
+        to="/products/cover"
+        onClick={toggleMenu}
+        className="block hover:text-yellow-400"
+      >
+        Cover
+      </Link>
 
-    <Link
-      to="/products/cover"
-      onClick={toggleMenu}
-      className="block hover:text-yellow-400"
-    >
-      Cover
-    </Link>
+      <Link
+        to="/products/earphone"
+        onClick={toggleMenu}
+        className="block hover:text-yellow-400"
+      >
+        Earphone
+      </Link>
 
-    <Link
-      to="/products/earphone"
-      onClick={toggleMenu}
-      className="block hover:text-yellow-400"
-    >
-      Earphone
-    </Link>
+      <Link
+        to="/products/powerbank"
+        onClick={toggleMenu}
+        className="block hover:text-yellow-400"
+      >
+        Powerbank
+      </Link>
+    </div>
+  )}
+</div>
 
-    <Link
-      to="/products/powerbank"
-      onClick={toggleMenu}
-      className="block hover:text-yellow-400"
-    >
-      Powerbank
-    </Link>
-  </div>
-)}
-            </div>
+<Link
+  to="/order"
+  onClick={toggleMenu}
+  className={`transition ${
+    location.pathname === "/order"
+      ? "text-yellow-400 font-semibold"
+      : "text-white hover:text-yellow-400"
+  }`}
+>
+  MY ORDERS
+</Link>
 
-            <Link
-              to="/order"
-              onClick={toggleMenu}
-              className="hover:text-yellow-400"
-            >
-              MY ORDERS
-            </Link>
+<Link
+  to="/refer"
+  onClick={toggleMenu}
+  className={`transition ${
+    location.pathname === "/refer"
+      ? "text-yellow-400 font-semibold"
+      : "text-white hover:text-yellow-400"
+  }`}
+>
+  REFER & EARN
+</Link>
 
-            <Link
-              to="/refer"
-              onClick={toggleMenu}
-              className="hover:text-yellow-400"
-            >
-              REFER & EARN
-            </Link>
+<Link
+  to="/about"
+  onClick={toggleMenu}
+  className={`transition ${
+    location.pathname === "/about"
+      ? "text-yellow-400 font-semibold"
+      : "text-white hover:text-yellow-400"
+  }`}
+>
+  ABOUT US
+</Link>
 
-            <Link
-              to="/about"
-              onClick={toggleMenu}
-              className="hover:text-yellow-400"
-            >
-              ABOUT US
-            </Link>
-          </div>
-
-          {/* Bottom Login Button */}
-          <div className="mt-auto">
-            <Link
-              to="/login"
-              onClick={toggleMenu}
-              className="block w-full text-center bg-yellow-400 text-black py-3 rounded-xl font-semibold hover:bg-yellow-500 transition"
-            >
-              Login
-            </Link>
-          </div>
+</div>
+          {/* Login Button */}
+<Link
+  to="/login"
+  onClick={toggleMenu}
+  className="block w-full text-center bg-yellow-400 text-black py-3 rounded-xl font-semibold hover:bg-yellow-500 transition mt-2"
+>
+  Login
+</Link>
         </div>
       </div>
     </>
