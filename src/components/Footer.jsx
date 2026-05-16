@@ -322,18 +322,18 @@ const Footer = () => {
 
           </div>
           {/* Bottom */}
-<div className="border-t border-gray-700 mt-10 pt-5 text-center text-gray-400 text-sm">
-  © 2025 Mobile Shop | All Rights Reserved{" "}
+          <div className="border-t border-gray-700 mt-10 pt-5 text-center text-gray-400 text-sm">
+            © 2025 Mobiee Shop | All Rights Reserved{" "}
 
-  <a
-    href="https://www.firsttracktechnologies.com"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-blue-400 hover:text-blue-300 transition font-medium"
-  >
-    First Track Technologies Pvt. Ltd.
-  </a>
-</div>
+            <a
+              href="https://www.firsttracktechnologies.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-300 transition font-medium"
+            >
+              First Track Technologies Pvt. Ltd.
+            </a>
+          </div>
         </div>
       </footer>
 

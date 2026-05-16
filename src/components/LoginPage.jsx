@@ -229,7 +229,7 @@ const LoginPage = () => {
           </h1>
 
           <p className="text-center text-sm md:text-lg text-gray-200 leading-relaxed">
-            Buy the latest mobile accessories at the best price.
+            Buy the latest mobiee shop at the best price.
             Fast delivery, easy returns & secure payments.
           </p>
 

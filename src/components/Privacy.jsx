@@ -229,9 +229,9 @@ const PrivacyPolicy = () => {
             stores and manages your personal information securely.
           </p>
 
-          <p className="text-sm text-gray-500 mt-3">
+          {/* <p className="text-sm text-gray-500 mt-3">
             Effective Date: 1 January 2026
-          </p>
+          </p> */}
         </div>
 
         {/* Main Policy Cards */}

@@ -94,18 +94,18 @@ const AboutUs = () => {
             {/* Content */}
             <div>
               <h1 className="text-5xl font-bold mb-6">
-                About Our Mobile Store
+                About Our Mobiee Shop
               </h1>
 
               <p className="text-orange-700 text-lg leading-relaxed mb-6">
-                We provide premium quality mobile accessories including
+                We provide premium quality mobiee accessories including
                 covers, chargers, earphones, power banks, and many
                 more products at affordable prices.
               </p>
 
               <p className="text-orange-700 text-lg leading-relaxed mb-8">
                 Our mission is to deliver stylish and durable accessories
-                that improve your mobile experience.
+                that improve your mobiee experience.
               </p>
 
               <a
